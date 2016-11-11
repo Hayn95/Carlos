@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<h:html xmlns:h="http://www.w3.org/1999/xhtml" xmlns:orx="http://openrosa.org/jr/xforms" xmlns="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:vellum="http://commcarehq.org/xforms/vellum">
+	<h:head>
+		<h:title>Encuesta de Casa Brenes  [en]</h:title>
+		<model>
+			<instance>
+				<data xmlns:jrm="http://dev.commcarehq.org/jr/xforms" xmlns="http://openrosa.org/formdesigner/E2E07B3C-9665-4247-B2E9-D0162C4B0D6C" uiVersion="1" version="1" name="Encuesta de Casa Brenes  [en]">
+					<Bien />
+					<name vellum:comment="Nombre Completo" />
+					<fec_nac />
+					<num_cel_own />
+					<cell />
+					<email />
+					<question12 />
+					<question9 jr:template="">
+						<question13 />
+						<question15 />
+					</question9>
+					<cal />
+					<Limpieza />
+					<Sug1 />
+					<Pers />
+					<question10 />
+					<question16 />
+				</data>
+			</instance>
+			<bind vellum:nodeset="#form/Bien" nodeset="/data/Bien" />
+			<bind vellum:nodeset="#form/name" nodeset="/data/name" type="xsd:string" required="true()" />
+			<bind vellum:nodeset="#form/fec_nac" nodeset="/data/fec_nac" type="xsd:date" constraint=". &lt;= today() - 6575" jr:constraintMsg="jr:itext('fec_nac-constraintMsg')" required="true()" />
+			<bind vellum:nodeset="#form/num_cel_own" nodeset="/data/num_cel_own" required="true()" />
+			<bind vellum:nodeset="#form/cell" nodeset="/data/cell" type="xsd:string" constraint="string-length(.) &gt;= 8 and regex(., '^[0-9]+$')" jr:constraintMsg="jr:itext('cell-constraintMsg')" vellum:relevant="#form/num_cel_own = 'celcho1'" relevant="/data/num_cel_own = 'celcho1'" required="true()" />
+			<bind vellum:nodeset="#form/email" nodeset="/data/email" type="xsd:string" required="true()" />
+			<bind vellum:nodeset="#form/question12" nodeset="/data/question12" type="xsd:int" constraint="regex(., '^[0-9]+$')" jr:constraintMsg="jr:itext('question12-constraintMsg')" required="true()" />
+			<bind vellum:nodeset="#form/question9" nodeset="/data/question9" />
+			<bind vellum:nodeset="#form/question9/question13" nodeset="/data/question9/question13" type="xsd:string" required="true()" />
+			<bind vellum:nodeset="#form/question9/question15" nodeset="/data/question9/question15" type="xsd:date" required="true()" />
+			<bind vellum:nodeset="#form/cal" nodeset="/data/cal" />
+			<bind vellum:nodeset="#form/Limpieza" nodeset="/data/Limpieza" required="true()" />
+			<bind vellum:nodeset="#form/Sug1" nodeset="/data/Sug1" type="xsd:string" vellum:relevant="#form/Limpieza = 'lim1'" relevant="/data/Limpieza = 'lim1'" />
+			<bind vellum:nodeset="#form/Pers" nodeset="/data/Pers" required="true()" />
+			<bind vellum:nodeset="#form/question10" nodeset="/data/question10" type="xsd:string" vellum:relevant="#form/Pers = 'per1'" relevant="/data/Pers = 'per1'" />
+			<bind vellum:nodeset="#form/question16" nodeset="/data/question16" />
+			<setvalue event="xforms-ready" vellum:ref="#form/question12" ref="/data/question12" value="0" />
+			<itext>
+				<translation lang="es" default="">
+					<text id="Bien-label">
+						<value># Bienvenido a la Encuesta de Casa Brenes.
+## Donde evaluaremos el desempeño de la calidad de nuestros servicios.</value>
+						<value form="markdown"># Bienvenido a la Encuesta de Casa Brenes.
+## Donde evaluaremos el desempeño de la calidad de nuestros servicios.</value>
+					</text>
+					<text id="name-label">
+						<value>Por favor escriba su nombre</value>
+					</text>
+					<text id="fec_nac-label">
+						<value>Por favor ingrese su fecha de nacimiento</value>
+					</text>
+					<text id="fec_nac-constraintMsg">
+						<value>Tiene que ser mayor de 18 años</value>
+					</text>
+					<text id="num_cel_own-label">
+						<value>Tienes Celular?</value>
+					</text>
+					<text id="num_cel_own-celcho1-label">
+						<value>Si</value>
+					</text>
+					<text id="num_cel_own-celcho2-label">
+						<value>No</value>
+					</text>
+					<text id="cell-label">
+						<value>Por favor ingrese su celular</value>
+					</text>
+					<text id="cell-constraintMsg">
+						<value>Solo debe de contener numero.
+Debe de tener mas de 7 digitos</value>
+					</text>
+					<text id="email-label">
+						<value>Por favor ingrese su correo electronico</value>
+					</text>
+					<text id="question12-label">
+						<value>Esta hospedado con algun hijo? Cuantos?</value>
+					</text>
+					<text id="question12-constraintMsg">
+						<value>Por favor ingrese solo numeros, si no esta hospedado con sus hijos o si no tiene por favor indique 0</value>
+					</text>
+					<text id="question9/question13-label">
+						<value>Cual es el nombre de su hij@?</value>
+					</text>
+					<text id="question9/question15-label">
+						<value>Cual es la edad de su hij@?</value>
+					</text>
+					<text id="cal-label">
+						<value>## Califique del 1 al 5 .
+### Siendo 5 Excelente y 1 Deficiente</value>
+						<value form="markdown">## Califique del 1 al 5 .
+### Siendo 5 Excelente y 1 Deficiente</value>
+					</text>
+					<text id="Limpieza-label">
+						<value>Como calificaria la limpieza en general de Casa Brenes</value>
+					</text>
+					<text id="Limpieza-lim1-label">
+						<value>1</value>
+					</text>
+					<text id="Limpieza-lim2-label">
+						<value>2</value>
+					</text>
+					<text id="Limpieza-lim3-label">
+						<value>3</value>
+					</text>
+					<text id="Limpieza-lim4-label">
+						<value>4</value>
+					</text>
+					<text id="Limpieza-lim5-label">
+						<value>5</value>
+					</text>
+					<text id="Sug1-label">
+						<value>Alguna sugerencia que nos quiera brindar al respecto</value>
+					</text>
+					<text id="Pers-label">
+						<value>Como calificaria la atencion del Personal</value>
+					</text>
+					<text id="Pers-per1-label">
+						<value>1</value>
+					</text>
+					<text id="Pers-per2-label">
+						<value>2</value>
+					</text>
+					<text id="Pers-per3-label">
+						<value>3</value>
+					</text>
+					<text id="Pers-per4-label">
+						<value>4</value>
+					</text>
+					<text id="Pers-per5-label">
+						<value>5</value>
+					</text>
+					<text id="question10-label">
+						<value>Alguna sugerencia que nos quiera brindar al respecto</value>
+					</text>
+					<text id="question16-label">
+						<value>## Muchas Gracias por haber realizado la encuesta y por haberse hospedado en Casa Brenes.
+## Esperamos que vuelvan.
+# Gracias.</value>
+						<value form="markdown">## Muchas Gracias por haber realizado la encuesta y por haberse hospedado en Casa Brenes.
+## Esperamos que vuelvan.
+# Gracias.</value>
+					</text>
+				</translation>
+			</itext>
+		</model>
+	</h:head>
+	<h:body>
+		<trigger vellum:ref="#form/Bien" ref="/data/Bien" appearance="minimal">
+			<label ref="jr:itext('Bien-label')" />
+		</trigger>
+		<input vellum:ref="#form/name" ref="/data/name">
+			<label ref="jr:itext('name-label')" />
+		</input>
+		<input vellum:ref="#form/fec_nac" ref="/data/fec_nac">
+			<label ref="jr:itext('fec_nac-label')" />
+			<hint>DD/MM/AA</hint>
+			<alert ref="jr:itext('fec_nac-constraintMsg')" />
+		</input>
+		<select1 vellum:ref="#form/num_cel_own" ref="/data/num_cel_own">
+			<label ref="jr:itext('num_cel_own-label')" />
+			<item>
+				<label ref="jr:itext('num_cel_own-celcho1-label')" />
+				<value>celcho1</value>
+			</item>
+			<item>
+				<label ref="jr:itext('num_cel_own-celcho2-label')" />
+				<value>celcho2</value>
+			</item>
+		</select1>
+		<input vellum:ref="#form/cell" ref="/data/cell" appearance="numeric">
+			<label ref="jr:itext('cell-label')" />
+			<alert ref="jr:itext('cell-constraintMsg')" />
+		</input>
+		<input vellum:ref="#form/email" ref="/data/email">
+			<label ref="jr:itext('email-label')" />
+		</input>
+		<input vellum:ref="#form/question12" ref="/data/question12">
+			<label ref="jr:itext('question12-label')" />
+			<alert ref="jr:itext('question12-constraintMsg')" />
+		</input>
+		<group>
+			<repeat vellum:jr__count="#form/question12" jr:count="/data/question12" jr:noAddRemove="true()" vellum:nodeset="#form/question9" nodeset="/data/question9">
+				<input vellum:ref="#form/question9/question13" ref="/data/question9/question13">
+					<label ref="jr:itext('question9/question13-label')" />
+				</input>
+				<input vellum:ref="#form/question9/question15" ref="/data/question9/question15">
+					<label ref="jr:itext('question9/question15-label')" />
+				</input>
+			</repeat>
+		</group>
+		<trigger vellum:ref="#form/cal" ref="/data/cal" appearance="minimal">
+			<label ref="jr:itext('cal-label')" />
+		</trigger>
+		<select1 vellum:ref="#form/Limpieza" ref="/data/Limpieza">
+			<label ref="jr:itext('Limpieza-label')" />
+			<item>
+				<label ref="jr:itext('Limpieza-lim1-label')" />
+				<value>lim1</value>
+			</item>
+			<item>
+				<label ref="jr:itext('Limpieza-lim2-label')" />
+				<value>lim2</value>
+			</item>
+			<item>
+				<label ref="jr:itext('Limpieza-lim3-label')" />
+				<value>lim3</value>
+			</item>
+			<item>
+				<label ref="jr:itext('Limpieza-lim4-label')" />
+				<value>lim4</value>
+			</item>
+			<item>
+				<label ref="jr:itext('Limpieza-lim5-label')" />
+				<value>lim5</value>
+			</item>
+		</select1>
+		<input vellum:ref="#form/Sug1" ref="/data/Sug1">
+			<label ref="jr:itext('Sug1-label')" />
+		</input>
+		<select1 vellum:ref="#form/Pers" ref="/data/Pers">
+			<label ref="jr:itext('Pers-label')" />
+			<item>
+				<label ref="jr:itext('Pers-per1-label')" />
+				<value>per1</value>
+			</item>
+			<item>
+				<label ref="jr:itext('Pers-per2-label')" />
+				<value>per2</value>
+			</item>
+			<item>
+				<label ref="jr:itext('Pers-per3-label')" />
+				<value>per3</value>
+			</item>
+			<item>
+				<label ref="jr:itext('Pers-per4-label')" />
+				<value>per4</value>
+			</item>
+			<item>
+				<label ref="jr:itext('Pers-per5-label')" />
+				<value>per5</value>
+			</item>
+		</select1>
+		<input vellum:ref="#form/question10" ref="/data/question10">
+			<label ref="jr:itext('question10-label')" />
+		</input>
+		<trigger vellum:ref="#form/question16" ref="/data/question16" appearance="minimal">
+			<label ref="jr:itext('question16-label')" />
+		</trigger>
+	</h:body>
+</h:html>
